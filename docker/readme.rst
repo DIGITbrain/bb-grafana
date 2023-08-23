@@ -9,7 +9,7 @@ create, explore, and share dashboards.
 
 Version
 -------
-Grafana version **8.3.4** deployed based on the Docker Hub image: [2]_ released by verified publisher Grafana Labs. 
+Grafana version **10.0.3** deployed based on the Docker Hub image: [2]_ released by verified publisher Grafana Labs.
 
 License
 -------
@@ -19,9 +19,9 @@ Pre-requisites
 ==============
 * *docker* installed
 * access to DIGITbrain private docker repo (username, password) to pull the image:
-  
+
   - ``docker login dbs-container-repo.emgora.eu``
-  - ``docker pull dbs-container-repo.emgora.eu/grafana:8.3.4``
+  - ``docker pull dbs-container-repo.emgora.eu/grafana:10.0.3``
 
 Usage
 =====
@@ -32,7 +32,7 @@ Usage
       -e GF_SECURITY_ADMIN_USER=myusername \
       -e GF_SECURITY_ADMIN_PASSWORD=mypassword \
       -p 3000:3000 \
-      grafana:8.3.4 
+      dbs-container-repo.emgora.eu/grafana:10.0.3
 
 where GF_SECURITY_ADMIN_USER and GF_SECURITY_ADMIN_PASSWORD values are set to access the web UI of Grafana accessible on host port 3000.
 
@@ -40,7 +40,7 @@ The open a browser with URL: https://<<container-host>>:3000/ (in Chrome type in
 
 Security
 ========
-The web UI requires username-password authentication and network trafic is encrypted over HTTPS with a server certificate signed by DIGITbrain CA. 
+The web UI requires username-password authentication and network trafic is encrypted over HTTPS with a server certificate signed by DIGITbrain CA.
 
 You can override the default settings (certificates, ports).
 
@@ -49,7 +49,7 @@ Configuration
 
 Environment variables
 ---------------------
-.. list-table:: 
+.. list-table::
    :header-rows: 1
 
    * - Name
@@ -64,7 +64,7 @@ Environment variables
 
 Ports
 -----
-.. list-table:: 
+.. list-table::
   :header-rows: 1
 
   * - Container port
@@ -76,23 +76,23 @@ Ports
 
 Volumes
 -------
-.. list-table:: 
+.. list-table::
   :header-rows: 1
 
   * - Name
     - Volume mount example
     - Comment
-  * - *Data*    
+  * - *Data*
     - ``-v $PWD/data:/var/lib/grafana``
     - Grafana data will be persisted on host directory: ``./data``.
-  * - *Configuration*    
+  * - *Configuration*
     - ``-v $PWD/grafana.ini:/etc/grafana/grafana.ini``
     - Custom Grafana configuration file. See [4]_ for details.
-  * - *Server certificate*    
-    - ``-v $PWD/certificates/server-cert.pem:/etc/grafana/certs/server-cert.pem``  
+  * - *Server certificate*
+    - ``-v $PWD/certificates/server-cert.pem:/etc/grafana/certs/server-cert.pem``
     - The server certificate (for HTTPS connection)
-  * - *Server key*    
-    - ``-v $PWD/certificates/server-key.pem:/etc/grafana/certs/server-key.pem``  
+  * - *Server key*
+    - ``-v $PWD/certificates/server-key.pem:/etc/grafana/certs/server-key.pem``
     - The server key (for HTTPS connection)
 
 References

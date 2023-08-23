@@ -1,7 +1,7 @@
-# docker build -t grafana:8.3.4 .
-# docker run -d --rm --name=grafana -e GF_SECURITY_ADMIN_USER=digitbrain -e GF_SECURITY_ADMIN_PASSWORD=digitbrain -p 3000:3000 grafana:8.3.4
+# docker build -t grafana:10.0.3 .
+# docker run -d --rm --name=grafana -e GF_SECURITY_ADMIN_USER=digitbrain -e GF_SECURITY_ADMIN_PASSWORD=digitbrain -p 3000:3000 grafana:10.0.3
 
-FROM grafana/grafana:8.3.4
+FROM grafana/grafana:10.0.3
 
 USER root
 RUN mkdir -p /etc/grafana/certs
